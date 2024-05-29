@@ -13,7 +13,7 @@ local themes_path      = gfs.get_configuration_dir() .. "themes/"
 
 local theme            = {}
 
-theme.font             = "CaskaydiaCove 11"
+theme.font             = "CaskaydiaCove Propo 12"
 
 theme.bg_normal        = "#3b4252"
 theme.bg_focus         = "#5e81ac"
@@ -32,7 +32,7 @@ theme.border_focus     = "#81a1c1"
 theme.border_marked    = "#91231c"
 --
 -- Tasklist:
-theme.tasklist_spacing = 15
+theme.tasklist_spacing = 0
 
 
 -- Minimizado

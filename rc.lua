@@ -206,8 +206,8 @@ globalkeys = gears.table.join(
         { description = "Open Browser", group = "launcher" }),
     awful.key({ modkey, }, "v", function() awful.spawn("kitty nvim-binario") end,
         { description = "Open Neovim", group = "launcher" }),
-    awful.key({ modkey, }, "r", function() awful.spawn("rofi -i -show drun -modi drun -show-icons") end,
-        { description = "Rofi drun", group = "launcher" }),
+    awful.key({ modkey, }, "r", function() awful.spawn("rofi -show") end,
+        { description = "Run", group = "launcher" }),
 
     -- NOTE: script que mostra todos os pdfs que eu tenho e abre no zathura
     awful.key({ modkey, }, "z", function() awful.spawn("openPDF") end,

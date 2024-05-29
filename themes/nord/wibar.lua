@@ -5,6 +5,7 @@ local client = client
 local gears = require "gears"
 
 
+
 -- Create a textclock widget
 local mytextclock = wibox.container.background(
     wibox.widget.textclock(),
@@ -112,7 +113,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen          = s,
         filter          = awful.widget.taglist.filter.all,
         style           = {
-            shape = gears.shape.powerline,
+            shape = gears.shape.rounded_rect,
         },
         layout          = {
             spacing        = -0,
@@ -131,7 +132,7 @@ awful.screen.connect_for_each_screen(function(s)
                                 id     = "index_role",
                                 widget = wibox.widget.textbox,
                             },
-                            margins = 0.1,
+                            margins = 0,
                             widget  = wibox.container.margin,
                         },
                         shape  = gears.shape.star,
@@ -178,7 +179,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
+        filter  = awful.widget.tasklist.filter.focused,
         buttons = tasklist_buttons,
         style   = {
             shape = gears.shape.rounded_rect
@@ -189,31 +190,30 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({
         bg = "#00000000",
         screen = s,
-        stretch = false,
-        width = 1700,
-        height = 65,
+        stretch = true,
+        height = 35,
         position = "top",
-        -- shape = gears.shape.rounded_rect,
+        shape = gears.shape.rounded_rect,
     })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         {
             layout = wibox.layout.align.horizontal,
-            spacing = 5,
+            spacing = 0,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
                 --spacing_widget = wibox.widget.separator,
-                spacing = 10,
+                spacing = 0,
                 -- mylauncher,
                 s.mytaglist,
                 s.mypromptbox,
             },
             { -- Middle widget
-                s.mytasklist,
+                s.mytasklist, -- only the focus one
                 widget = wibox.container.margin,
-                left = 50,
-                right = 50,
+                left = 0,
+                right = 0,
             },
 
             { -- Right widgets
@@ -223,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
                         {
                             layout = wibox.layout.fixed.horizontal,
                             spacing_widget = wibox.widget.separator,
-                            spacing = 10,
+                            spacing = 0,
                             wibox.widget.systray(),
                             mytextclock,
                             battery.widget,
@@ -233,10 +233,10 @@ awful.screen.connect_for_each_screen(function(s)
                         halign = "center",
                     },
                     widget = wibox.container.margin,
-                    left = 10,
-                    right = 10,
-                    top = 5,
-                    bottom = 5,
+                    left = 0,
+                    right = 0,
+                    top = 0,
+                    bottom = 0,
                 },
                 widget = wibox.container.background,
                 bg = beautiful.bg_normal,
@@ -244,7 +244,7 @@ awful.screen.connect_for_each_screen(function(s)
             },
         },
         widget = wibox.container.margin,
-        top = 20,
-        bottom = 20,
+        top = 0,
+        bottom = 0,
     }
 end)
