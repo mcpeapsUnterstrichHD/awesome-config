@@ -132,7 +132,7 @@ awful.screen.connect_for_each_screen(function(s)
                                 id     = "index_role",
                                 widget = wibox.widget.textbox,
                             },
-                            margins = 0,
+                            margins = 0.1,
                             widget  = wibox.container.margin,
                         },
                         shape  = gears.shape.star,
